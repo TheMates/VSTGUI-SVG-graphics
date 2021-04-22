@@ -39,6 +39,7 @@ public:
 	 */
 	SVGGraphics(const CRect& size, std::string& filePath);
 
+#ifdef WIN32
 	/**
 	 * Calls CBitmap(size) constructor, that automatically creates an empty IPlatformBitmap and puts it in bitmaps vector in CBitmap.
 	 * Loads the SVG image from resources according to provided resource id
@@ -46,7 +47,7 @@ public:
 	 * @param resId resource id
 	 */
 	SVGGraphics(const CRect& size, long resId);
-
+#endif
 
 	void draw(CDrawContext* context, const CRect& rect, const CPoint& offset, float alpha) override;
 
