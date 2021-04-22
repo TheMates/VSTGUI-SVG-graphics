@@ -8,6 +8,7 @@ Drawing inspired by [Surge](https://github.com/surge-synthesizer/surge).
 ### "Usage"
 
 ```cpp
+using namespace VSTGUI;
 ...
 
 CRect svgSize(x1, y1, x2, y2);
