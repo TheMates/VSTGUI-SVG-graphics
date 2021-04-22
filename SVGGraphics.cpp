@@ -28,11 +28,12 @@ SVGGraphics::SVGGraphics(const CRect& size, std::string& filePath) : CBitmap(CPo
     //}
 }
 
-
+#ifdef WIN32
 SVGGraphics::SVGGraphics(const CRect& size, long resId) : CBitmap(CPoint(size.getWidth(), size.getHeight()))
 {
     svgImage = loadSVGFromResources(resId);
 }
+#endif
 
 void SVGGraphics::draw(CDrawContext* context, const CRect& rect, const CPoint& offset, float alpha)
 {
