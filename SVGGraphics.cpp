@@ -97,11 +97,10 @@ NSVGimage* SVGGraphics::loadSVGFromPath(const std::string& filename)
     long length = buffer.size();
     if (length == 0)        //file does not exist, or some other error
         return nullptr;
-    //std::unique_ptr<char[]> data(new char[length + 1]);
-    //buffer[length] = '\0';
-    //memcpy(data.get(), buffer.data(), length * sizeof(char));
-    //return nsvgParse(data.get(), "px", 96);
-    return nsvgParse(buffer.data(), "px", 96);
+    std::unique_ptr<char[]> data(new char[length + 1]);
+    buffer[length] = '\0';
+    memcpy(data.get(), buffer.data(), length * sizeof(char));
+    return nsvgParse(data.get(), "px", 96);
 }
 
 void SVGGraphics::drawSVG(VSTGUI::CDrawContext* dc, const VSTGUI::CRect& rect, const CPoint& transOff, float alpha)
